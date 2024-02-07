@@ -16,7 +16,7 @@ export default function NotFound() {
           <p className="mt-6 text-base leading-7 text-gray-600">
             Sorry, we couldn't find the page you're looking for.
           </p>
-          <div class="mt-10">
+          <div className="mt-10">
             <Link href="/" className="text-sm font-semibold leading-7 text-indigo-600">&larr; Back to home</Link>
           </div>
           
