@@ -7,7 +7,9 @@ export default function Header() {
       <nav className="mx-auto max-w-7xl px-8 flex h-16 items-center">
 
         <Link href="/">
-          <img src="/logo.svg" alt="Woodruff Woodstore Logo" className="h-8 w-auto"/>
+          <svg viewBox="0 0 47 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-8 w-auto">
+            <path fill="#4f46e5" d="M23.5 6.5c-6 0-9.75 3-11.25 9 2.25-3 4.875-4.125 7.875-3.375 1.712.428 2.935 1.67 4.29 3.044C26.62 17.41 29.172 20 34.75 20c6 0 9.75-3 11.25-9-2.25 3-4.875 4.125-7.875 3.375-1.712-.428-2.935-1.67-4.29-3.044C31.63 9.09 29.078 6.5 23.5 6.5zM12.25 20c-6 0-9.75 3-11.25 9 2.25-3 4.875-4.125 7.875-3.375 1.712.428 2.935 1.67 4.29 3.044C15.37 30.91 17.922 33.5 23.5 33.5c6 0 9.75-3 11.25-9-2.25 3-4.875 4.125-7.875 3.375-1.712-.428-2.935-1.67-4.29-3.044C20.38 22.59 17.828 20 12.25 20z"/>
+          </svg>
         </Link>
 
         <div className="flex h-full ml-8 space-x-8">
