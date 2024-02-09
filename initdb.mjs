@@ -27,7 +27,7 @@ const productsDocs = [
         id: "2",
         name: "Nomad Tumbler",
         description: "Adventure awaits with the Nomad Tumbler. Designed for the modern explorer, it keeps drinks at the perfect temperature, whether you're on the move or taking a moment to pause.",
-        inStock: 10,
+        inStock: 0,
         imageSrc: "/images/product-2.jpg",
         price: 35,
         ratings: [],
@@ -68,7 +68,7 @@ const productsDocs = [
         id: "5",
         name: "Card Holder",
         description: "Organize your essentials in style with the sleek Card Holder. Designed for convenience and elegance, it's the perfect accessory for your everyday adventures.",
-        inStock: 10,
+        inStock: 0,
         imageSrc: "/images/product-5.jpg",
         price: 64,
         ratings: [

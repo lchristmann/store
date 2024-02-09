@@ -39,7 +39,7 @@ export default async function Products() {
           <div className="grid gap-y-10 grid-cols-4 gap-x-8">
 
             {products.map(product => (
-              <Link href={`/products/${product.id}`}>
+              <Link href={`/products/${product.id}`} key={product.id}>
                 <div className="w-full overflow-hidden rounded-lg bg-gray-200 aspect-h-7 aspect-w-7">
                   <Image src={product.imageSrc} alt={product.name} fill className="hover:opacity-75 object-cover object-center" priority/>
                 </div>
