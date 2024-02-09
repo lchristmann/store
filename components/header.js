@@ -1,7 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
+import { options } from "@/app/api/auth/[...nextauth]/options";
 
-export default function Header() {
+export default async function Header() {
+  const session = await getServerSession(options);
+
   return (
     <header>
       <nav className="mx-auto max-w-7xl px-8 flex h-16 items-center">
@@ -18,11 +21,8 @@ export default function Header() {
         </div>
 
         <div className="ml-auto flex items-center">
-          <div className="flex flex-1 items-center justify-end space-x-6">
-            <Link href="/api/auth/signin" className="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</Link>
-            <span className="h-6 w-px bg-gray-200"></span>
-            <Link href="/create-account" className="text-sm font-medium text-gray-700 hover:text-gray-800">Create account</Link>
-          </div>
+          {session ? (<Link href="/api/auth/signout?callbackUrl=/" className="text-sm font-medium text-gray-700 hover:text-gray-800">Sign out</Link>) :
+           (<Link href="/api/auth/signin" className="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</Link>)}
 
           <div className="ml-6">
             <Link href="/cart" className="group -m-2 flex items-center p-2">
