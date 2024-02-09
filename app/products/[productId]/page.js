@@ -3,6 +3,7 @@ import Header from "@/components/header";
 import Image from "next/image";
 
 import { MongoClient } from "mongodb";
+import { notFound } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
@@ -25,6 +26,8 @@ async function getProduct(productId) {
 
 export default async function Product({ params }) {
   const product = await getProduct(params.productId);
+
+  if (!product) notFound();
 
   return (
     <>
