@@ -1,5 +1,7 @@
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import AddToCartButton from "@/components/addToCartButton";
+
 import Image from "next/image";
 
 import { MongoClient } from "mongodb";
@@ -25,7 +27,7 @@ async function getProduct(productId) {
 }
 
 export default async function Product({ params }) {
-  const product = await getProduct(params.productId);
+  const product = await getProduct(parseInt(params.productId));
 
   if (!product) notFound();
 
@@ -68,12 +70,7 @@ export default async function Product({ params }) {
                     </section>
 
                     <div className="mt-10">
-                        <form>
-                            <button type="submit"
-                                className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">
-                                Add to Cart
-                            </button>
-                        </form>
+                        <AddToCartButton productId={product.id} />
                     </div>
 
                     <section className="mt-12">
