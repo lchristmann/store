@@ -5,7 +5,7 @@ const productsDocs = [
         id: 1,
         name: "Earthen Bottle",
         description: "Crafted with care, the Earthen Bottle boasts timeless elegance. Perfect for both hot and cold beverages, it's a stylish companion for any journey.",
-        inStock: 10,
+        inStock: 8,
         imageSrc: "/images/product-1.jpg",
         price: 48,
         ratings: [
@@ -52,7 +52,7 @@ const productsDocs = [
         id: 4,
         name: "Machined Mechanical Pencil",
         description: "Precision meets style with the Machined Mechanical Pencil. Crafted with precision engineering, it offers unparalleled performance for the discerning writer or artist.",
-        inStock: 10,
+        inStock: 9,
         imageSrc: "/images/product-4.jpg",
         price: 32,
         ratings: [
@@ -90,7 +90,7 @@ const productsDocs = [
         id: 6,
         name: "Focus Multi-Pack",
         description: "Versatility meets quality with the Focus Multi-Pack. Whether you're sketching, writing, or planning, this set has you covered with its assortment of high-quality tools.",
-        inStock: 10,
+        inStock: 22,
         imageSrc: "/images/product-6.jpg",
         price: 28,
         ratings: [],
@@ -99,7 +99,7 @@ const productsDocs = [
         id: 7,
         name: "Brass Scissors",
         description: "Add a touch of sophistication to your crafting projects with Brass Scissors. Designed for precision and durability, they're an essential tool for any DIY enthusiast.",
-        inStock: 10,
+        inStock: 13,
         imageSrc: "/images/product-7.jpg",
         price: 50,
         ratings: [
@@ -121,7 +121,7 @@ const productsDocs = [
         id: 8,
         name: "Carry Case",
         description: "Keep your essentials organized on the go with the Carry Case. Stylish and practical, it's the perfect companion for your daily adventures.",
-        inStock: 10,
+        inStock: 19,
         imageSrc: "/images/product-8.jpg",
         price: 35,
         ratings: [

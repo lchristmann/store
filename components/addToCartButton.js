@@ -11,11 +11,12 @@ function addToCart(productId) {
     if (cart) items = JSON.parse(cart);
 
     const index = items.findIndex(item => item.product === productId);
-      
+
     // increase quantity or add product to cookie
     if (index > -1) items[index].quantity++;
     else items.push({product: productId, quantity: 1});
 
+    cookie.remove('cart');
     cookie.set('cart', JSON.stringify(items), { expires: 365 });
 }
 
