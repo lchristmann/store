@@ -1,13 +1,19 @@
-import Footer from "@/components/footer";
-import Header from "@/components/header";
+"use client";
 
-export default function Checkout() {
+import Footer from "@/components/footer";
+import Header from "@/components/headerClient";
+
+import dynamic from 'next/dynamic'
+
+const Checkout = dynamic(() => import('@/components/checkout'), { ssr: false })
+
+export default function CheckoutPage() {
     return (
         <>
             <Header />
-            {/* probably make a own "use client" component here - Header needs to be SSR'd because it uses getServerSession
-            might think about conditional rendering though, to make this 100% CSR'd for maximum performance :) BUT TEST THROUGH LOGGING THAT THE HEADER THEN REALLY IS ONLY CSR'd */}
-            {/* don't forget to clear both cart and checkout cookies in the end */}
+            <main className="mx-auto max-w-2xl pt-4">
+                <Checkout />
+            </main>
             <Footer />
         </>
     );

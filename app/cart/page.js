@@ -58,48 +58,46 @@ export default async function Cart() {
     return (
         <>
             <Header />
-            <main>
-                <div className="mx-auto max-w-2xl pt-4">
-                    {cartIsNotEmpty && (<>
-                        <ul className="divide-y divide-gray-200 border-b border-gray-200">
-                        {items.map(item => (
-                            <li className="flex py-6" key={item.product}>
-                                <Image src={item.imageSrc} width={128} height={128} alt={item.name} className="rounded-md object-cover object-center h-32 w-32"/>
+            <main className="mx-auto max-w-2xl pt-4">
+                {cartIsNotEmpty && (<>
+                    <ul className="divide-y divide-gray-200 border-b border-gray-200">
+                    {items.map(item => (
+                        <li className="flex py-6" key={item.product}>
+                            <Image src={item.imageSrc} width={128} height={128} alt={item.name} className="rounded-md object-cover object-center h-32 w-32"/>
 
-                                <div className="flex flex-1 flex-col ml-6">
-                                    <div className="flex justify-between">
-                                        <h4 className="text-sm">
-                                            <Link href={`/products/${item.product}`} className="font-medium text-gray-700 hover:text-gray-800">{item.name}</Link>
-                                        </h4>
-                                        <p className="text-sm font-medium text-gray-900">${item.price}</p>
-                                    </div>
-
-                                    <div className="flex flex-1 items-end">
-                                        <p className="flex items-center space-x-2 text-sm text-gray-700">
-                                            <svg className="h-5 w-5 flex-shrink-0 text-green-500" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
-                                            </svg>
-                                            <span>{item.quantity}x</span>
-                                        </p>
-                                    </div>
+                            <div className="flex flex-1 flex-col ml-6">
+                                <div className="flex justify-between">
+                                    <h4 className="text-sm">
+                                        <Link href={`/products/${item.product}`} className="font-medium text-gray-700 hover:text-gray-800">{item.name}</Link>
+                                    </h4>
+                                    <p className="text-sm font-medium text-gray-900">${item.price}</p>
                                 </div>
-                            </li>
-                        ))}
-                        </ul>
 
-                        <div className="flex items-center justify-between mt-10">
-                            <p className="text-base font-medium text-gray-900">Total</p>
-                            <p className="text-base font-medium text-gray-900">${total}</p>
-                        </div>
+                                <div className="flex flex-1 items-end">
+                                    <p className="flex items-center space-x-2 text-sm text-gray-700">
+                                        <svg className="h-5 w-5 flex-shrink-0 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                                        </svg>
+                                        <span>{item.quantity}x</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    ))}
+                    </ul>
 
-                        <CheckoutButton items={items} />
-                    </>)}
-                    <p className="mt-6 text-center text-sm text-gray-500">
-                        <Link href="/products" className="font-medium text-indigo-600 hover:text-indigo-500">
-                            Continue Shopping<span> &rarr;</span>
-                        </Link>
-                    </p>
-                </div>
+                    <div className="flex items-center justify-between mt-10">
+                        <p className="text-base font-medium text-gray-900">Total</p>
+                        <p className="text-base font-medium text-gray-900">${total}</p>
+                    </div>
+
+                    <CheckoutButton items={items} />
+                </>)}
+                <p className="mt-6 text-center text-sm text-gray-500">
+                    <Link href="/products" className="font-medium text-indigo-600 hover:text-indigo-500">
+                        Continue Shopping<span> &rarr;</span>
+                    </Link>
+                </p>
             </main>
             <Footer />
         </>
