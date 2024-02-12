@@ -1,18 +1,37 @@
 'use server';
 
+import { MongoClient } from "mongodb";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export async function checkout(items, data) {
-    console.log(items);
-    console.log(data);
-    console.log("Checkout successful.");
+    
+    let mongoClient = new MongoClient(process.env.DB_URI);
+    await mongoClient.connect();
+    const db = mongoClient.db('woodruff-woodstore');
 
-    cookies().delete('cart');
-    cookies().delete('checkout')
+    async function isTotalPriceValid() {
+        // get prices of items from database and validate if the passed price is valid
+        let total = 0;
+        
+        for (let item of items) {
+            const price = await db.collection('products').findOne({ id: item.product }, { projection: { price: 1, _id: 0 } });
+            total += price * item.quantity;
+        }
 
-    redirect('/');
+        return total === data.total;
+    }
 
-    // verify that the total price is right - if not redirect to a failure page
-    // call API of payment provider
+    if (isTotalPriceValid()) {
+        // save the order to the database
+        const result = await db.collection('orders').insertOne({ items, data, orderedAt: new Date() });
+        console.log(`The order document was inserted with the _id: ${result.insertedId}`);
+
+        cookies().delete('cart');
+        cookies().delete('checkout');
+
+        redirect('/checkout/success')
+    }
+
+    redirect('/checkout/failure');
 }
