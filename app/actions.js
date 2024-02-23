@@ -35,3 +35,21 @@ export async function checkout(items, data) {
 
     redirect('/checkout/failure');
 }
+
+export async function getProduct(productId) {
+
+    let mongoClient;
+
+    try {
+        mongoClient = new MongoClient(process.env.DB_URI);
+        await mongoClient.connect();
+        const db = mongoClient.db('woodruff-woodstore');
+
+        return await db.collection('products').findOne({ id: productId }, { projection: { _id: 0 } });
+        
+    } catch (error) {
+        console.log(error);
+    } finally {
+        await mongoClient.close();
+    }
+}
