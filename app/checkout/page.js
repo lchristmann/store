@@ -11,9 +11,7 @@ export default function CheckoutPage() {
     return (
         <>
             <Header />
-            <main className="mx-auto max-w-2xl pt-4">
-                <Checkout />
-            </main>
+            <Checkout />
             <Footer />
         </>
     );

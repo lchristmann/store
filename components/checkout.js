@@ -76,12 +76,12 @@ export default function Checkout() {
     };
 
     return (
-        <>
+        <main className="mx-auto max-w-2xl pt-4">
             {activeForm === 0 ? (
                 <CheckoutFirstForm data={data} handleChange={handleChange} handleContinue={() => setActiveForm(1)} />
             ) : (
                 <CheckoutSecondForm data={data} handleChange={handleChange} handleDeliveryMethodChange={handleDeliveryMethodChange} handleBack={() => setActiveForm(0)} handleSubmit={() => checkout(items, data)} />
             )}
-        </>
+        </main>
     );
 }
