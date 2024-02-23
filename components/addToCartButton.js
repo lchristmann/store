@@ -12,13 +12,14 @@ export default function AddToCartButton({ productId }) {
     
         let items = [];
     
-        // e.g. [{product: 1, quantity: 3}, {product: 3, quantity: 2}]
+        // use user's cart if it exists
         if (cart) items = JSON.parse(cart);
     
+        // if item is already in cart, increase quantity
         const index = items.findIndex(item => item.product === productId);
-    
-        // increase quantity or add product to cookie
         if (index > -1) items[index].quantity++;
+
+        // else add it with a quantity of 1
         else items.push({product: productId, quantity: 1});
     
         cookie.remove('cart');
